@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liderança Servidora e Papéis Informais</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Font for Icons (Google Material Icons) -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'stone-50': '#fafaf9',
+                        'stone-100': '#f5f5f4',
+                        'stone-200': '#e7e5e4',
+                        'stone-800': '#292524',
+                        'stone-900': '#1c1917',
+                        'brand-teal': '#0f766e',
+                        'brand-amber': '#d97706',
+                        'paper': '#ffffff',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 font-sans leading-relaxed selection:bg-brand-amber selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-stone-50/95 backdrop-blur-sm border-b border-stone-200 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="material-icons-round text-brand-teal mr-2">verified_user</span>
+                    <span class="font-serif font-bold text-xl text-stone-900 tracking-tight">Liderança Ágil</span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <button onclick="scrollToSection('contexto')" class="text-xs font-bold uppercase hover:text-brand-teal transition">Contexto</button>
+                    <button onclick="scrollToSection('problema')" class="text-xs font-bold uppercase hover:text-brand-teal transition">Problema</button>
+                    <button onclick="scrollToSection('papeis')" class="text-xs font-bold uppercase hover:text-brand-teal transition">Papéis</button>
+                    <button onclick="scrollToSection('solucao')" class="text-xs font-bold uppercase hover:text-brand-teal transition">Proposta</button>
+                    <button onclick="scrollToSection('implicacoes')" class="text-xs font-bold uppercase hover:text-brand-teal transition">Implicações</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-28">
+
+        <!-- HERO SECTION -->
+        <section id="intro" class="text-center space-y-8 fade-in">
+            <div class="inline-flex items-center bg-brand-teal/10 text-brand-teal px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">
+                PORTFÓLIO ACADÊMICO
+            </div>
+            <h1 class="text-4xl md:text-6xl font-serif font-bold text-stone-900 tracking-tight leading-tight">
+                Liderança Servidora e a <br class="hidden md:block">
+                <span class="text-brand-amber italic underline decoration-amber-200 underline-offset-8">Dupla Lealdade</span>
+            </h1>
+            <p class="max-w-3xl mx-auto text-xl text-stone-600 font-light">
+                Mitigando conflitos de pertencimento em equipes ágeis terceirizadas através da Segurança Psicológica e Papéis Informais.
+            </p>
+            <div class="flex justify-center gap-6 pt-6">
+                <div class="text-left border-l-2 border-stone-200 pl-4">
+                    <p class="text-xs font-bold text-stone-400 uppercase">Autora</p>
+                    <p class="text-sm font-bold text-stone-800">Claudia Cristina Farias Rodrigues Pinto</p>
+                </div>
+                <div class="text-left border-l-2 border-stone-200 pl-4">
+                    <p class="text-xs font-bold text-stone-400 uppercase">Orientador</p>
+                    <p class="text-sm font-bold text-stone-800">Daniel Callegari</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 1: CONTEXTO E MERCADO -->
+        <section id="contexto" class="scroll-mt-24 space-y-12">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-serif font-bold text-stone-900">Cenário de Expansão e o Gap de Engajamento</h2>
+                    <p class="text-stone-600">
+                        Enquanto o setor de TIC no Brasil projeta investimentos massivos, o engajamento humano enfrenta uma crise global alarmante, impactando diretamente a produtividade e a retenção de talentos.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-black text-brand-teal uppercase">BRASSCOM 2025</span>
+                                <span class="text-sm font-bold">R$ 762,4 Bi</span>
+                            </div>
+                            <div class="w-full bg-stone-100 h-2 rounded-full overflow-hidden">
+                                <div class="bg-brand-teal h-full w-[85%]"></div>
+                            </div>
+                            <p class="text-[10px] text-stone-400 mt-2 italic text-right">Produção Setor TIC (2024)</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-black text-brand-amber uppercase">GALLUP 2025</span>
+                                <span class="text-sm font-bold">21% Engajados</span>
+                            </div>
+                            <div class="w-full bg-stone-100 h-2 rounded-full overflow-hidden">
+                                <div class="bg-brand-amber h-full w-[21%]"></div>
+                            </div>
+                            <p class="text-[10px] text-stone-400 mt-2 italic text-right">Média Global de Engajamento</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200">
+                    <h3 class="text-sm font-bold text-stone-800 mb-6 uppercase tracking-widest text-center">Métricas de Alta Performance (AMCHAM)</h3>
+                    <div class="chart-container">
+                        <canvas id="marketChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: O PROBLEMA - DUPLA LEALDADE -->
+        <section id="problema" class="scroll-mt-24 bg-stone-900 rounded-[3rem] p-8 md:p-16 text-white overflow-hidden relative">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-amber/10 blur-[100px]"></div>
+            <div class="relative z-10 grid lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-5 space-y-6">
+                    <h2 class="text-4xl font-serif font-bold text-brand-amber italic">Dual Allegiance</h2>
+                    <p class="text-stone-400 text-lg leading-relaxed">
+                        O fenômeno da <strong>Dupla Lealdade</strong> ocorre quando o profissional terceirizado se vê dividido entre os valores da Consultoria e a cultura do Cliente.
+                    </p>
+                    <div class="space-y-4 pt-4">
+                        <div class="flex gap-4 items-start">
+                            <span class="material-icons-round text-brand-amber">priority_high</span>
+                            <div>
+                                <h4 class="font-bold text-white">Tensão de Papéis</h4>
+                                <p class="text-sm text-stone-500">Demandas conflitantes geram stress psicológico e ambiguidade nos critérios de avaliação.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <span class="material-icons-round text-brand-amber">group_off</span>
+                            <div>
+                                <h4 class="font-bold text-white">Fragmentação de Identidade</h4>
+                                <p class="text-sm text-stone-500">Incerteza sobre pertencimento e lealdade: "Quem define o meu sucesso?"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 flex flex-col justify-center items-center">
+                    <div class="relative w-full max-w-md aspect-square border border-stone-700 rounded-full flex items-center justify-center p-8">
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-stone-900 px-6 py-2 rounded-full font-bold shadow-xl">CLIENTE</div>
+                        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 bg-stone-700 text-white px-6 py-2 rounded-full font-bold">CONSULTORIA</div>
+                        <div class="w-40 h-40 rounded-full bg-gradient-to-br from-brand-amber to-orange-700 flex items-center justify-center text-center p-4 shadow-[0_0_50px_rgba(217,119,6,0.3)] animate-pulse">
+                            <span class="text-xs font-black uppercase tracking-tighter">Profissional em Conflito Cultural</span>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-stone-500 mt-12 uppercase tracking-[0.3em]">Husted, Michailova (2010)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: OS PAPÉIS INFORMAIS -->
+        <section id="papeis" class="scroll-mt-24 space-y-12">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-stone-200 pb-8">
+                <div class="space-y-2">
+                    <h2 class="text-3xl font-serif font-bold text-stone-900">Papéis Informais em Times Ágeis</h2>
+                    <p class="text-stone-500 italic">Habilitadores essenciais para a auto-organização (Hoda, Noble e Marshall, 2013).</p>
+                </div>
+                <div class="bg-stone-100 px-4 py-2 rounded-lg text-xs font-bold text-stone-500 uppercase tracking-widest">
+                    Dinâmicas Situacionais
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="roles-grid">
+                <!-- Injected via JavaScript -->
+            </div>
+        </section>
+
+        <!-- SECTION 4: PROPOSTA - FRAMEWORK CONCEITUAL -->
+        <section id="solucao" class="scroll-mt-24 space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-6">
+                <h2 class="text-4xl font-serif font-bold text-stone-900">Framework Conceitual</h2>
+                <p class="text-stone-600 text-lg leading-relaxed">
+                    A Liderança Servidora atua como o elo de transformação, criando <strong>Segurança Psicológica</strong> (Edmondson; Lei, 2014) e permitindo que o foco de lealdade se desloque das organizações para a missão da equipe.
+                </p>
+            </div>
+
+            <!-- FRAMEWORK IMAGE INSERTION -->
+            <div class="max-w-5xl mx-auto bg-white rounded-[2rem] p-4 shadow-2xl border border-stone-200 overflow-hidden fade-in">
+                <img src="framework-conceitual.png" alt="Framework Conceitual: Liderança Servidora superando a Dupla Lealdade" class="w-full h-auto rounded-2xl">
+                <div class="text-center mt-6 pb-4">
+                    <p class="text-sm font-bold text-stone-400 uppercase tracking-[0.3em]">MODELO CONCEITUAL PROPOSTO(2026).</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 pt-6">
+                <div class="p-6 bg-brand-teal/5 rounded-2xl border border-brand-teal/10">
+                    <h4 class="font-bold text-brand-teal mb-2 font-serif uppercase text-xs">O Gatilho</h4>
+                    <p class="text-sm text-stone-600">O líder servidor atua como escudo (blindagem) contra pressões externas conflitantes.</p>
+                </div>
+                <div class="p-6 bg-brand-amber/5 rounded-2xl border border-brand-amber/10">
+                    <h4 class="font-bold text-brand-amber mb-2 font-serif uppercase text-xs">O Elo</h4>
+                    <p class="text-sm text-stone-600">A Segurança Psicológica permite que membros assumam riscos e exerçam papéis informais.</p>
+                </div>
+                <div class="p-6 bg-stone-900/5 rounded-2xl border border-stone-900/10">
+                    <h4 class="font-bold text-stone-800 mb-2 font-serif uppercase text-xs">O Resultado</h4>
+                    <p class="text-sm text-stone-600">Lealdade à Missão: O sucesso da equipe transcende as fronteiras organizacionais.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: IMPLICAÇÕES PRÁTICAS (LAST SECTION) -->
+        <section id="implicacoes" class="scroll-mt-24 space-y-12">
+            <div class="bg-white rounded-[3rem] border border-stone-200 shadow-sm overflow-hidden">
+                <div class="grid lg:grid-cols-2 gap-0">
+                    <div class="p-10 md:p-16 space-y-10 border-r border-stone-100">
+                        <h2 class="text-4xl font-serif font-bold text-stone-900 leading-tight">Implicações Práticas e Estratégicas</h2>
+                        <p class="text-stone-500 text-lg">
+                            As conclusões deste estudo oferecem recomendações diretas para a gestão de talentos em contextos de terceirização complexa.
+                        </p>
+                        
+                        <div class="space-y-8">
+                            <div class="flex gap-6">
+                                <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="material-icons-round text-brand-teal">model_training</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold font-serif mb-2">Desenvolvimento de Líderes</h3>
+                                    <p class="text-stone-600 text-sm leading-relaxed">
+                                        Priorizar programas de formação em <strong>Liderança Servidora</strong> focados em competências como Coaching, Empatia, Escuta Ativa e Comunicação Eficaz. É uma prioridade estratégica para 69% das empresas (AMCHAM, 2025).
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-6">
+                                <div class="w-12 h-12 bg-brand-amber/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <span class="material-icons-round text-brand-amber">analytics</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold font-serif mb-2">Redefinição de KPIs</h3>
+                                    <p class="text-stone-600 text-sm leading-relaxed">
+                                        Incorporar métricas holísticas que meçam o <strong>Engajamento</strong>, a <strong>Segurança Psicológica</strong> e o <strong>Bem-estar</strong> da equipe, indo além das tradicionais métricas de entrega e custo.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-10 md:p-16 bg-stone-50/50 flex flex-col justify-center">
+                        <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-stone-100">
+                            <h3 class="text-center font-bold text-stone-800 mb-8 uppercase text-[10px] tracking-[0.3em]">Perfil de Atuação Sugerido</h3>
+                            <div class="chart-container">
+                                <canvas id="leadershipChart"></canvas>
+                            </div>
+                            <p class="mt-8 text-center text-xs text-stone-400 italic font-light leading-relaxed">
+                                Comparação entre o modelo de Liderança Servidora (Proposto) <br> vs Modelos Hierárquicos Tradicionais.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: REFERÊNCIAS BIBLIOGRÁFICAS -->
+        <section id="referencias" class="scroll-mt-24 space-y-12">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl font-serif font-bold text-stone-900 mb-8 flex items-center">
+                    <span class="material-icons-round mr-3 text-brand-teal">menu_book</span>
+                    Referências Bibliográficas do Artigo
+                </h2>
+                <div class="grid md:grid-cols-2 gap-x-12 gap-y-6 text-[13px] text-stone-600" id="refs-container">
+                    <!-- Injected via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-900 text-stone-400 py-16 mt-20">
+        <div class="max-w-5xl mx-auto px-4 text-center space-y-6">
+            <div class="flex justify-center items-center space-x-4">
+                <div class="w-12 h-0.5 bg-stone-700"></div>
+                <span class="font-serif font-bold text-white text-lg tracking-widest uppercase">CLAUDIA FARIAS RODRIGUES PINTO</span>
+                <div class="w-12 h-0.5 bg-stone-700"></div>
+            </div>
+            <p class="text-xs uppercase tracking-[0.4em]">MBA EM GESTÃO DE PROJETOS E METODOLOGIAS ÁGEIS | 2026</p>
+            <p class="text-[10px] text-stone-600 max-w-md mx-auto leading-relaxed">
+                © 2026 - Conteúdo baseado no Artigo Científico: "Liderança Servidora como Habilitadora de Papéis Informais: Mitigando a Dupla Lealdade em Equipes Ágeis Terceirizadas."
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const rolesData = [
+            { name: "Mentor", icon: "school", desc: "Guia e apoia a equipe inicialmente, ajudando a ganhar confiança nos métodos ágeis e incentivando a auto-organização." },
+            { name: "Coordenador", icon: "hub", desc: "Atua como representante para gerenciar expectativas do cliente e coordenar a colaboração efectiva." },
+            { name: "Tradutor", icon: "translate", desc: "Interpreta e traduz entre a linguagem de negócio do cliente e a terminologia técnica para o time." },
+            { name: "Campeão", icon: "shield", desc: "Defende a causa ágil perante a alta gerência da consultoria para garantir o suporte institucional necessário." },
+            { name: "Promotor", icon: "campaign", desc: "Promove o ágil com clientes e busca o envolvimento ativo para apoiar o progresso da equipe." },
+            { name: "Exterminador", icon: "cleaning_services", desc: "Identifica bloqueios e comportamentos disfuncionais que ameaçam a coesão e produtividade do time." }
+        ];
+
+        const refsData = [
+            { text: "AMCHAM & HUMANIZADAS. Panorama Liderança 2025. São Paulo, 2025." },
+            { text: "BRASSCOM. Relatório Setorial 2024 - Macrossetor de TIC 2025. São Paulo, 2025." },
+            { text: "CANAVESI, A.; MINELLI, E. Servant Leadership and Employee Engagement: A Qualitative Study. 2022." },
+            { text: "EDMONSON, A. C., & LEI, Z. Psychological Safety: The History, Renaissance, and Future. 2014." },
+            { text: "EVA, N. et al. Servant Leadership: A systematic review and call for future research. 2019." },
+            { text: "GALLAGHER, D.G; MCLEAN PARKS, J. Commitment and the contingent work relationship. 2001." },
+            { text: "GALLUP. State of the Global Workplace: 2025 Report. 2025." },
+            { text: "HODA, R.; NOBLE, J.; MARSHALL, S. Self-Organizing Roles on Agile Software Development Teams. 2013." },
+            { text: "HUSTED, K.; MICHAILOVA, S. Dual Allegiance and Knowledge Sharing in Inter-firm R&D Collaborations. 2010." },
+            { text: "LAMBIASE, S. et al. Dealing With Cultural Dispersion: a Novel Theoretical Framework. 2024." },
+            { text: "SCHWABER, K.; SUTHERLAND, J. Scrum Guide, 2020." }
+        ];
+
+        const initCharts = () => {
+            const marketCtx = document.getElementById('marketChart').getContext('2d');
+            new Chart(marketCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Financeiros (82%)', 'Produtividade (54%)', 'Engajamento/Clima (48%)'],
+                    datasets: [{
+                        data: [82, 54, 48],
+                        backgroundColor: ['#0f766e', '#14b8a6', '#d97706'],
+                        borderWidth: 0,
+                        hoverOffset: 15
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10, family: 'Inter' } } }
+                    }
+                }
+            });
+
+            const leadershipCtx = document.getElementById('leadershipChart').getContext('2d');
+            new Chart(leadershipCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Empatia', 'Autoridade', 'Escuta Ativa', 'Desenvolvimento', 'Remoção de Impedimentos', 'Foco no Indivíduo'],
+                    datasets: [{
+                        label: 'Liderança Servidora',
+                        data: [10, 3, 10, 10, 10, 9],
+                        backgroundColor: 'rgba(15, 118, 110, 0.2)',
+                        borderColor: '#0f766e',
+                        borderWidth: 2,
+                        pointRadius: 3
+                    }, {
+                        label: 'Liderança Tradicional',
+                        data: [4, 10, 4, 5, 5, 4],
+                        backgroundColor: 'rgba(120, 113, 108, 0.2)',
+                        borderColor: '#78716c',
+                        borderWidth: 2,
+                        pointRadius: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { r: { beginAtZero: true, max: 10, ticks: { display: false }, grid: { color: '#e7e5e4' } } },
+                    plugins: { legend: { position: 'bottom', labels: { font: { size: 11, weight: '600' } } } }
+                }
+            });
+        };
+
+        const renderElements = () => {
+            const rolesGrid = document.getElementById('roles-grid');
+            rolesGrid.innerHTML = rolesData.map(role => `
+                <div class="group bg-white p-8 rounded-2xl border border-stone-200 shadow-sm hover:shadow-xl hover:border-brand-teal/20 transition-all duration-300">
+                    <div class="w-12 h-12 bg-stone-100 text-stone-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-teal group-hover:text-white transition-colors duration-300">
+                        <span class="material-icons-round text-2xl">${role.icon}</span>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-stone-900 mb-3">${role.name}</h3>
+                    <p class="text-sm text-stone-500 leading-relaxed">${role.desc}</p>
+                </div>
+            `).join('');
+
+            const refsContainer = document.getElementById('refs-container');
+            refsContainer.innerHTML = refsData.map(ref => `
+                <div class="flex gap-4 items-start pb-4 border-b border-stone-200">
+                    <span class="material-icons-round text-stone-300 text-xs mt-1">bookmark</span>
+                    <p class="leading-snug">${ref.text}</p>
+                </div>
+            `).join('');
+        };
+
+        const scrollToSection = (id) => {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        };
+
+        window.onload = () => {
+            initCharts();
+            renderElements();
+        };
+    </script>
+</body>
+</html>
