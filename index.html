@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -46,12 +44,15 @@
         .chart-container {
             position: relative;
             width: 100%;
-            height: 300px;
+            height: 380px; /* Aumentado para dar folga vertical */
+            margin: 0 auto;
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
             .chart-container {
-                height: 350px;
+                height: 340px;
+                padding-left: 5px;
+                padding-right: 5px;
             }
         }
 
@@ -62,6 +63,10 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .scroll-mt-24 {
+            scroll-margin-top: 6rem;
         }
     </style>
 </head>
@@ -113,7 +118,7 @@
             </div>
         </section>
 
-        <!-- SECTION 1: CONTEXTO E MERCADO -->
+        <!-- SECTION 1: CONTEXTO -->
         <section id="contexto" class="scroll-mt-24 space-y-12">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
@@ -146,14 +151,14 @@
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200">
                     <h3 class="text-sm font-bold text-stone-800 mb-6 uppercase tracking-widest text-center">Métricas de Alta Performance (AMCHAM)</h3>
-                    <div class="chart-container">
+                    <div class="chart-container" style="height: 300px;">
                         <canvas id="marketChart"></canvas>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 2: O PROBLEMA - DUPLA LEALDADE -->
+        <!-- SECTION 2: O PROBLEMA -->
         <section id="problema" class="scroll-mt-24 bg-stone-900 rounded-[3rem] p-8 md:p-16 text-white overflow-hidden relative">
             <div class="absolute top-0 right-0 w-64 h-64 bg-brand-amber/10 blur-[100px]"></div>
             <div class="relative z-10 grid lg:grid-cols-12 gap-12">
@@ -209,7 +214,7 @@
             </div>
         </section>
 
-        <!-- SECTION 4: PROPOSTA - FRAMEWORK CONCEITUAL -->
+        <!-- SECTION 4: PROPOSTA -->
         <section id="solucao" class="scroll-mt-24 space-y-12">
             <div class="text-center max-w-3xl mx-auto space-y-6">
                 <h2 class="text-4xl font-serif font-bold text-stone-900">Framework Conceitual</h2>
@@ -218,11 +223,15 @@
                 </p>
             </div>
 
-            <!-- FRAMEWORK IMAGE INSERTION -->
             <div class="max-w-5xl mx-auto bg-white rounded-[2rem] p-4 shadow-2xl border border-stone-200 overflow-hidden fade-in">
-                <img src="framework-conceitual.png" alt="Framework Conceitual: Liderança Servidora superando a Dupla Lealdade" class="w-full h-auto rounded-2xl">
+                <!-- Fallback for image -->
+                <div class="w-full bg-stone-100 rounded-2xl flex flex-col items-center justify-center p-12 min-h-[300px]">
+                    <span class="material-icons-round text-6xl text-brand-teal mb-4">hub</span>
+                    <h3 class="text-xl font-serif font-bold text-stone-800">Framework Conceitual Proposto</h3>
+                    <p class="text-stone-500 text-sm mt-2 text-center max-w-md italic">A Liderança Servidora mitigando a Dupla Lealdade e habilitando Papéis Informais em ambientes de terceirização.</p>
+                </div>
                 <div class="text-center mt-6 pb-4">
-                    <p class="text-sm font-bold text-stone-400 uppercase tracking-[0.3em]">MODELO CONCEITUAL PROPOSTO(2026).</p>
+                    <p class="text-sm font-bold text-stone-400 uppercase tracking-[0.3em]">MODELO CONCEITUAL PROPOSTO (2026).</p>
                 </div>
             </div>
 
@@ -242,7 +251,7 @@
             </div>
         </section>
 
-        <!-- SECTION 5: IMPLICAÇÕES PRÁTICAS (LAST SECTION) -->
+        <!-- SECTION 5: IMPLICAÇÕES PRÁTICAS -->
         <section id="implicacoes" class="scroll-mt-24 space-y-12">
             <div class="bg-white rounded-[3rem] border border-stone-200 shadow-sm overflow-hidden">
                 <div class="grid lg:grid-cols-2 gap-0">
@@ -279,9 +288,9 @@
                         </div>
                     </div>
 
-                    <div class="p-10 md:p-16 bg-stone-50/50 flex flex-col justify-center">
-                        <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-stone-100">
-                            <h3 class="text-center font-bold text-stone-800 mb-8 uppercase text-[10px] tracking-[0.3em]">Perfil de Atuação Sugerido</h3>
+                    <div class="p-8 md:p-12 bg-stone-50/50 flex flex-col justify-center">
+                        <div class="bg-white p-6 md:p-10 rounded-[2rem] shadow-xl border border-stone-100">
+                            <h3 class="text-center font-bold text-stone-800 mb-6 uppercase text-[10px] tracking-[0.3em]">Perfil de Atuação Sugerido</h3>
                             <div class="chart-container">
                                 <canvas id="leadershipChart"></canvas>
                             </div>
@@ -294,7 +303,7 @@
             </div>
         </section>
 
-        <!-- SECTION 6: REFERÊNCIAS BIBLIOGRÁFICAS -->
+        <!-- SECTION 6: REFERÊNCIAS -->
         <section id="referencias" class="scroll-mt-24 space-y-12">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-2xl font-serif font-bold text-stone-900 mb-8 flex items-center">
@@ -311,10 +320,10 @@
 
     <footer class="bg-stone-900 text-stone-400 py-16 mt-20">
         <div class="max-w-5xl mx-auto px-4 text-center space-y-6">
-            <div class="flex justify-center items-center space-x-4">
-                <div class="w-12 h-0.5 bg-stone-700"></div>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+                <div class="hidden md:block w-12 h-0.5 bg-stone-700"></div>
                 <span class="font-serif font-bold text-white text-lg tracking-widest uppercase">CLAUDIA FARIAS RODRIGUES PINTO</span>
-                <div class="w-12 h-0.5 bg-stone-700"></div>
+                <div class="hidden md:block w-12 h-0.5 bg-stone-700"></div>
             </div>
             <p class="text-xs uppercase tracking-[0.4em]">MBA EM GESTÃO DE PROJETOS E METODOLOGIAS ÁGEIS | 2026</p>
             <p class="text-[10px] text-stone-600 max-w-md mx-auto leading-relaxed">
@@ -348,6 +357,7 @@
         ];
 
         const initCharts = () => {
+            // Market Chart
             const marketCtx = document.getElementById('marketChart').getContext('2d');
             new Chart(marketCtx, {
                 type: 'doughnut',
@@ -369,32 +379,95 @@
                 }
             });
 
+            // Leadership Radar Chart - A SOLUÇÃO ESTÁ AQUI
             const leadershipCtx = document.getElementById('leadershipChart').getContext('2d');
             new Chart(leadershipCtx, {
                 type: 'radar',
                 data: {
-                    labels: ['Empatia', 'Autoridade', 'Escuta Ativa', 'Desenvolvimento', 'Remoção de Impedimentos', 'Foco no Indivíduo'],
+                    // Usando ARRAYS nas labels para forçar a quebra de linha automática
+                    labels: [
+                        'Empatia', 
+                        'Autoridade', 
+                        ['Escuta', 'Ativa'], 
+                        'Desenvolvimento', 
+                        ['Remoção de', 'Impedimentos'], 
+                        ['Foco no', 'Indivíduo']
+                    ],
                     datasets: [{
                         label: 'Liderança Servidora',
                         data: [10, 3, 10, 10, 10, 9],
-                        backgroundColor: 'rgba(15, 118, 110, 0.2)',
+                        backgroundColor: 'rgba(15, 118, 110, 0.15)',
                         borderColor: '#0f766e',
-                        borderWidth: 2,
-                        pointRadius: 3
+                        borderWidth: 3,
+                        pointBackgroundColor: '#0f766e',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#0f766e',
+                        pointRadius: 4
                     }, {
                         label: 'Liderança Tradicional',
                         data: [4, 10, 4, 5, 5, 4],
-                        backgroundColor: 'rgba(120, 113, 108, 0.2)',
+                        backgroundColor: 'rgba(120, 113, 108, 0.15)',
                         borderColor: '#78716c',
                         borderWidth: 2,
-                        pointRadius: 3
+                        pointBackgroundColor: '#78716c',
+                        pointBorderColor: '#fff',
+                        pointRadius: 4,
+                        borderDash: [5, 5] // Linha tracejada para diferenciar
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    scales: { r: { beginAtZero: true, max: 10, ticks: { display: false }, grid: { color: '#e7e5e4' } } },
-                    plugins: { legend: { position: 'bottom', labels: { font: { size: 11, weight: '600' } } } }
+                    layout: {
+                        // Padding generoso para o texto nunca bater na borda da div
+                        padding: {
+                            top: 20,
+                            bottom: 20,
+                            left: 45,
+                            right: 45
+                        }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true,
+                                color: 'rgba(0,0,0,0.05)'
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 11, // Um pouco acima de 10 para encolher o gráfico central
+                            ticks: { display: false, stepSize: 2 },
+                            pointLabels: {
+                                padding: 10, // Espaço entre o ponto e a label
+                                font: {
+                                    size: 11,
+                                    family: 'Inter',
+                                    weight: '600'
+                                },
+                                color: '#444',
+                                centerPointLabels: true // Ajuda no alinhamento central das labels
+                            },
+                            grid: {
+                                color: '#e7e5e4'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 25,
+                                usePointStyle: true,
+                                font: { size: 12, weight: '600' }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(28, 25, 23, 0.9)',
+                            padding: 12,
+                            titleFont: { size: 14, weight: '700' },
+                            bodyFont: { size: 13 }
+                        }
+                    }
                 }
             });
         };
@@ -421,7 +494,10 @@
         };
 
         const scrollToSection = (id) => {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
         };
 
         window.onload = () => {
